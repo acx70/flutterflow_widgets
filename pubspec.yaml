@@ -1,7 +1,7 @@
-name: flutterflow_widgets
+name: acx70_widgets
 description: Easy to use custom widget & action library for the FlutterFlow deveopers.
 version: 0.0.50
-homepage: https://github.com/thruthesky/flutterflow_widgets
+homepage: https://github.com/acx70/flutterflow_widgets
 
 environment:
   sdk: ">=2.19.2 <3.0.0"
