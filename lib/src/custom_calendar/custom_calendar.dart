@@ -13,13 +13,17 @@ class CustomCalendar extends StatefulWidget {
     Key? key,
     this.locale = 'en_US',
     this.events = const {},
+    this.calendarFormat = CalendarFormat.twoWeeks,
     required this.onDaySelected,
+    required this.onFormatChanged,
   }) : super(key: key);
 
   final String locale;
   final Map<DateTime, dynamic> events;
+  final CalendarFormat calendarFormat;
 
   final Function(List<dynamic>?) onDaySelected;
+  final Function(CalendarFormat) onFormatChanged;
   @override
   createState() => _CustomCalendarState();
 }
@@ -59,6 +63,12 @@ class _CustomCalendarState extends State<CustomCalendar> {
   }
 
   @override
+  void initState() {
+    _calendarFormat = widget.calendarFormat;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TableCalendar(
       locale: widget.locale,
@@ -80,6 +90,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
         setState(() {
           _calendarFormat = format;
         });
+        widget.onFormatChanged(_calendarFormat);
       },
       onPageChanged: (focusedDay) {
         _focusedDay = focusedDay;

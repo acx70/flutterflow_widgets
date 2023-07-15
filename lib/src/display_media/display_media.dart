@@ -183,9 +183,9 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer> {
               : (_chewieController != null &&
                       _chewieController!.videoPlayerController.value.hasError)
                   ? const Text('Error playing video')
-                  : Column(
+                  : const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         CircularProgressIndicator(),
                         SizedBox(height: 20),
                         Text('Loading'),
